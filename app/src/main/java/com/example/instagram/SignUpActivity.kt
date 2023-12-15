@@ -39,7 +39,7 @@ class SignUpActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContentView(binding.root)
 
         window.statusBarColor = Color.TRANSPARENT
 
@@ -77,5 +77,10 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.plus.setOnClickListener(){
+            launcher.launch("image/*")
+        }
     }
+
 }
