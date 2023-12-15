@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/gopal"
         android:layout_width="74dp"
         android:layout_height="19dp"
         android:drawableLeft="@drawable/grid"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/instalogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="200dp"
@@ -34,13 +34,13 @@
         app:srcCompat="@drawable/instagram" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="From"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintBottom_toTopOf="@+id/gopal"
+        app:layout_constraintEnd_toEndOf="@+id/gopal"
+        app:layout_constraintStart_toStartOf="@+id/gopal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

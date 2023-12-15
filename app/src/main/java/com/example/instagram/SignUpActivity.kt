@@ -1,5 +1,6 @@
 package com.example.instagram
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,7 +40,7 @@ class SignUpActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContentView(binding.root)
 
         window.statusBarColor = Color.TRANSPARENT
 
@@ -66,9 +67,10 @@ class SignUpActivity : AppCompatActivity() {
                                 Firebase.firestore.collection(USER).document(Firebase.auth.currentUser!!.uid).set(user)
                                     .addOnSuccessListener {
                                         Toast.makeText(this@SignUpActivity, "Registered Successfully", Toast.LENGTH_SHORT).show()
-                                    }
 
-                                finish()
+                                        startActivity(Intent(this@SignUpActivity, HomeActivity :: class.java))
+                                        finish()
+                                    }
                             }else{
                                 Toast.makeText(this, result.exception?.localizedMessage!!, Toast.LENGTH_SHORT).show()
                             }
@@ -77,5 +79,14 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.plus.setOnClickListener(){
+            launcher.launch("image/*")
+        }
+
+        binding.login.setOnClickListener(){
+            startActivity(Intent(this, LoginActivity:: class.java))
+        }
     }
+
 }

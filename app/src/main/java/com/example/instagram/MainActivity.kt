@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,12 +14,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         window.statusBarColor = Color.TRANSPARENT
 
-        Handler(Looper.getMainLooper()).postDelayed(
-            {
-            startActivity(Intent(this@MainActivity, SignUpActivity :: class.java))
-            }, 3000
-        )
 
-        finish()
+        Handler(Looper.getMainLooper()).postDelayed({
+            if(FirebaseAuth.getInstance().currentUser == null) {
+                    startActivity(Intent(this@MainActivity, SignUpActivity::class.java))
+                }else{
+                    startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+               }
+        }, 2000)
+//        Handler(Looper.getMainLooper()).postDelayed(
+//            {
+//                if(FirebaseAuth.getInstance().currentUser == null) {
+//                    startActivity(Intent(this@MainActivity, SignUpActivity::class.java))
+//                }else{
+//                    startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+//                }
+//            }, 3000
+//        )
+//        finish()
     }
 }
